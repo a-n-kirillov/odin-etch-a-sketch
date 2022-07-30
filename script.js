@@ -3,6 +3,8 @@ const gridSize = 960;
 const gridContainer = document.querySelector(".grid-container");
 initGrid(gridContainer, 32);
 
+const squareGrids = document.querySelectorAll(".grid-square");
+addHoveringEffect(squareGrids);
 
 function initGrid(gridContainer, gridSideSize) {
     gridContainer.style.display = "grid";
@@ -15,4 +17,12 @@ function initGrid(gridContainer, gridSideSize) {
         square.classList.add("grid-square");
         gridContainer.appendChild(square);
     }
+}
+
+function addHoveringEffect(squares) {
+    squares.forEach((square) => {
+        square.addEventListener("mouseover", (e => {
+            square.classList.add("colored");
+        }))
+    })
 }
